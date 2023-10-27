@@ -20,7 +20,9 @@ describe User do
   end
 
   describe 'validation' do
+
     describe 'nickname属性' do
+
       describe '文字数制限の検証' do
         context 'nicknameが20文字以下の場合' do
           let(:nickname) { 'あいうえおかきくけこさしすせそたちつてと' }
@@ -38,6 +40,17 @@ describe User do
 
             expect(user.valid?).to be(false)
             expect(user.errors[:nickname]).to include('is too long (maximum is 20 characters)')
+          end
+        end
+      end
+
+      describe 'nickname存在性の検証' do
+        context 'nicknameが空欄の場合' do
+          let(:nickname) { '' }
+
+          it 'Userオブジェクトは無効である' do
+            expect(user.valid?).to be(false)
+            expect(user.errors[:nickname]).to include("can't be blank")
           end
         end
       end
