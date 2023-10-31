@@ -1,29 +1,33 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), class: "space-y-6 w-3/4 max-w-lg" ,local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <label class="block text-xl font-bold text-gray-700">ユーザー登録</label>
+  <div class="mt-1">
+    <label class="text-gray-700 text-md">
+      メールアドレス
+    </label>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm placeholder-gray-400 border border-gray-300 rounded-md", placeholder: "test@exeample.com" %>
+  </div>
+  <div class="mt-1">
+    <label class="text-gray-700 text-md">
+      ニックネーム
+    </label>
+    <%= f.text_field :nickname, autocomplete: "nickname", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm placeholder-gray-400 border border-gray-300 rounded-md", placeholder: "エンジニアの卵" %>
+  </div>
+  <div class="mt-1">
+    <label class="text-gray-700 text-md">
+      パスワード (6文字以上)
+    </label>
+    <%= f.password_field :password, autocomplete: "new-password", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm placeholder-gray-400 border border-gray-300 rounded-md", placeholder: "pass1234" %>
+  </div>
+  <div class="mt-1">
+    <label class="text-gray-700 text-md">
+      確認用パスワード
+    </label>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm placeholder-gray-400 border border-gray-300 rounded-md", placeholder: "pass1234" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
+  <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    <%= f.submit "ユーザー登録" %>
+  </button>
 <% end %>
-
-<%= render "devise/shared/links" %>
