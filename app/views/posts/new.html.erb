@@ -1,0 +1,22 @@
+<%= form_with model: @post, class: "space-y-6 w-3/4 max-w-lg" do |f| %>
+  <label class="block text-xl font-bold text-gray-700">学習ログ投稿</label>
+  <div class="mt-1">
+    <label class="text-gray-700 text-lg">
+      タイトル
+    </label>
+    <%= f.text_field :title, class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm placeholder-gray-400 border border-gray-300 rounded-md", placeholder: "Railsチュートリアル1章を完了" %>
+  </div>
+  <div class="mt-1">
+    <label class="text-gray-700 text-lg">
+      本文
+    </label>
+    <%= f.text_area :content, rows: "5", class: "shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm placeholder-gray-400 border border-gray-300 rounded-md", placeholder: "環境構築を無事に終えることができた！" %>
+  </div>
+  <p class="mt-2 text-sm text-gray-500">
+    学習したこと、開発したことを記録しましょう。<br>
+    参考にしたサイトがあればURLを書いておくことをオススメします。
+  </p>
+  <div class="px-4 py-3 text-right sm:px-6">
+    <%= f.submit "ログを記録", class: "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" %>
+  </div>
+<% end %>
