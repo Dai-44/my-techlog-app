@@ -103,8 +103,10 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    geocoder (1.8.2)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    gmaps4rails (2.1.2)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     importmap-rails (1.2.1)
@@ -299,6 +301,8 @@ DEPENDENCIES
   debug
   devise
   factory_bot_rails
+  geocoder
+  gmaps4rails
   importmap-rails
   jbuilder
   puma (~> 5.0)
