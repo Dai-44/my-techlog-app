@@ -10,7 +10,7 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     if @post.save
       flash[:notice] = '投稿しました'
-      redirect_to posts_path
+      redirect_to root_path
     else
       flash[:alert] = '投稿に失敗しました'
       render :new
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
       @post.destroy
       flash[:notice] = '投稿が削除されました'
     end
-    redirect_to posts_path
+    redirect_to root_path
   end
 
   private
